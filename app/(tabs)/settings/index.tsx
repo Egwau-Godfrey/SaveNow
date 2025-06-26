@@ -7,13 +7,17 @@ export default function Settings() {
     router.replace('/(auth)');
   };
 
+  const routeToPrivacy = () => {
+    router.navigate('/(tabs)/settings/privacy');
+  };
+
   const DATA = [
     {
       title: "General",
       data: [
         { id: '1', icon: 'person-outline', color: '#666', title: 'Account', onPress: () => console.log('Account pressed') },
         { id: '2', icon: 'notifications-outline', color: '#666', title: 'Notifications', onPress: () => console.log('Notifications pressed') },
-        { id: '3', icon: 'lock-closed-outline', color: '#666', title: 'Privacy', onPress: () => console.log('Privacy pressed') },
+        { id: '3', icon: 'lock-closed-outline', color: '#666', title: 'Privacy', onPress: routeToPrivacy },
       ]
     },
     {
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 20,
     paddingHorizontal: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'white',
     borderBottomWidth: 1,
     borderBottomColor: '#eaeaea',
   },
