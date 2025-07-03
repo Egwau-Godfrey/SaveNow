@@ -1,4 +1,5 @@
-import { SafeAreaView, SectionList, Text, View, StyleSheet } from "react-native";
+import { SectionList, Text, View, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import SettingSectionItem from "@/components/settingsSection";
 import { router } from "expo-router";
 
@@ -51,7 +52,7 @@ export default function Settings() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Settings</Text>
       </View>

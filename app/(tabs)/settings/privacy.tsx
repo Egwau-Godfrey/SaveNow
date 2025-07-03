@@ -1,10 +1,11 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, Text, StyleSheet, View } from 'react-native';
 
 export default function PrivacyPolicy() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+    <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
+      <ScrollView contentContainerStyle={[styles.scrollContent, {paddingBottom: 30}]}>
         <Text style={styles.header}>Privacy Policy</Text>
 
         <Text style={styles.date}>Last Updated: June 25, 2025</Text>

@@ -1,6 +1,7 @@
 import { router } from "expo-router";
 import { useState } from "react";
-import { KeyboardAvoidingView, Platform, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { KeyboardAvoidingView, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ export default function SignUp() {
 
   const SignUp = () => {
     // Handle sign up
+    router.replace('/(tabs)/home');
   };
 
   return (
@@ -70,8 +72,8 @@ export default function SignUp() {
           </View>
 
           <View style={styles.LogBtnContainer}>
-            <Pressable onPress={Login} style={styles.loginBtn}>
-              <Text style={styles.btnText}>Login</Text>
+            <Pressable onPress={SignUp} style={styles.loginBtn}>
+              <Text style={styles.btnText}>Sign Up</Text>
             </Pressable>
           </View>
 

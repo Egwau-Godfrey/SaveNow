@@ -1,5 +1,6 @@
 import { router } from "expo-router";
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Button, Pressable, StyleSheet, Text, View, Image } from "react-native";
 
 const nextOnboarding = () => {
     router.replace('/(auth)')

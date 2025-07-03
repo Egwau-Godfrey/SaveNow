@@ -1,7 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useState } from "react";
-import { KeyboardAvoidingView, Platform, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { KeyboardAvoidingView, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ export default function Login() {
 
   const Login = () => {
     
-    router.replace('/(tabs)');
+    router.replace('/(tabs)/home');
   };
 
   const BacktoOnboard = () => {
@@ -20,8 +21,10 @@ export default function Login() {
     router.navigate('/(auth)/signup');
   };
 
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{flex: 1}}>
       <KeyboardAvoidingView 
         style={{ flex: 1 }} 
         keyboardVerticalOffset={140}
@@ -73,7 +76,7 @@ export default function Login() {
           </View>
 
           <View style={styles.bottomTextContainer}>
-            <Text style={{ fontSize: 18 }}>Don't have an account? </Text>
+            <Text style={{ fontSize: 18 }}>Don&apos;t have an account? </Text>
             <Pressable onPress={SignUp}>
               <Text style={{ color: "#a78bfa", fontSize: 18 }}>Signup</Text>
             </Pressable>

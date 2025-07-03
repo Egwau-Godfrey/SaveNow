@@ -1,8 +1,9 @@
 import AiInsightsCard, { AiInsightsCardProps } from "@/components/Ai_insightsCards";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useState } from "react";
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useState } from "react"
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const currentDate = new Date();
 const year = currentDate.getFullYear();
@@ -19,6 +20,8 @@ export default function Home() {
   const formattedIncome = income.toLocaleString();
   const formattedBonuses = bonuses.toLocaleString();
   const formattedOthers = others.toLocaleString();
+
+  const insets = useSafeAreaInsets();
 
   const transactions = () => {
     router.navigate('/(tabs)/home/transactions');
@@ -95,8 +98,8 @@ export default function Home() {
   ];
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
+      <ScrollView contentContainerStyle={{paddingBottom: 30}}>
 
         <View style={styles.titleHeader}>
           <View>

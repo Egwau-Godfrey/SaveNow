@@ -1,17 +1,20 @@
 import { router } from "expo-router";
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, View, Image, KeyboardAvoidingView, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Button, Pressable, StyleSheet, Text, View, Image } from "react-native";
+
 
 const nextOnboarding = () => {
-  router.navigate('/(onboarding)/step2')
+    router.navigate('/(onboarding)/step2')
 };
 
 const skipToLogin = () => {
-  router.replace('/(auth)')
+    router.replace('/(auth)')
 };
 
-export default function Step1() {
+export default function Step2() {
   return (
     <SafeAreaView style={styles.container}>
+
       <View style={styles.skip}>
         <Pressable onPress={skipToLogin}>
           <Text allowFontScaling={false} style={styles.skip_text}>Skip</Text>
@@ -33,8 +36,6 @@ export default function Step1() {
         </Pressable>
       </View>
 
-      
-
     </SafeAreaView>
   );
 }
@@ -44,14 +45,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white"
   },
-  scrollViewContent: {
-    flexGrow: 1,
-    paddingBottom: 100,
-  },
   button_1: {
+    position: "absolute",
+    left: 0,
+    right: 0,
     alignItems: "center",
-    marginTop: 40,
-    paddingHorizontal: 20,
+    bottom: 60,
+    paddingTop: 10,
   },
   pressable: {
     borderColor: "#a78bfa",
@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
   },
   image_1: {
     height: 500,
-    width: 400
+    width: 400,
+    resizeMode: "contain",
   },
   image_container: {
     alignItems: "center"
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: 10,
     paddingRight: 10,
-    paddingBottom: 10,
+    paddingBottom: 10
   },
   titleText: {
     fontWeight: "bold",
